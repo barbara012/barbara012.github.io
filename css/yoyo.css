@@ -186,11 +186,7 @@ a img {
 .img--full {
 	border: 6px solid #fafafa;
 	margin: 0 auto;
-	width: 100px;
 	position: relative;
-}
-.img--full img {
-	height: 100px;
 }
 .nav--full--next,
 .nav--full--pre {
