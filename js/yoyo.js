@@ -234,12 +234,24 @@
 				return;
 			};
 			var element = getImgFull();
+			fullImgDiv.children('.image-full').css('display', 'none');
+			loadImg.appendTo(fullImgDiv);
+
 			element.obj.attr({
 				'src': srcFull + (element.picId - 1) + '.jpg',
 				'data-num': (element.picId - 1)
 			});
-			canNextFullPic = true;
-			isLastImg((element.picId - 2), 'full', 2, $fullPicPre);
+
+			element.obj.load(function () {
+
+				fullImgDiv.children('.load').remove();
+				$(this).css('display', 'block');
+
+
+				canNextFullPic = true;
+				isLastImg((element.picId - 2), 'full', 2, $fullPicPre);
+			});
+
 
 		},
 
