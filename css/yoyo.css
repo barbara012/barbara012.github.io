@@ -192,13 +192,13 @@ a img {
 	position: relative;
 }
 .img--full .load {
-	width: 319px;
-	height: 305px;
+	width: 148px;
+	height: 49px;
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	margin-top: -150px;
-	margin-left: -160px;
+	margin-top: -70px;
+	margin-left: -25px;
 }
 .nav--full--next,
 .nav--full--pre {

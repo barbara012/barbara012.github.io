@@ -275,6 +275,8 @@
 			fullImg.load(function () {
 
 				fullImgDiv.children('.load').remove();
+				fullNext.remove();
+				fullPre.next();
 				fullImg.appendTo(fullImgDiv);
 				fullNext
 					.append(
