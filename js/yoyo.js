@@ -247,7 +247,6 @@
 				fullImgDiv.children('.load').remove();
 				$(this).css('display', 'block');
 
-
 				canNextFullPic = true;
 				isLastImg((element.picId - 2), 'full', 2, $fullPicPre);
 			});

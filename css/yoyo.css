@@ -289,6 +289,7 @@ a img {
 	-ms-transition: all 0.2s ease;
 	-webkit-transition: all 0.2s ease;
 }
+
 .footer {
 	border-top: 4px solid #f6f5f1;
 	box-shadow: 0 -1px 0 #d2d2d3, 0 -1px 3px rgba(0,0,0,.2);
