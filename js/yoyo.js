@@ -110,7 +110,7 @@
 		changeImgPre = function () {
 			var $img = $('.img-li');
 			var firstImgNum = parseInt($($img[0]).children('a').children('img').attr('data-num'));
-			console.log(firstImgNum);
+
 			$img.css(transformRotate(90, 0));
 			if (firstImgNum == 12) {
 				$firstLi.css(transformRotate(90, 0));
@@ -322,7 +322,7 @@
 				var w = parseInt(fullImg.width(), 10),
 					h = parseInt(fullImg.height(), 10);
 				picWidth = picHeight * (w / h);
-				console.log("w:"+ w +','+ 'h:'+ h);
+
 				fullImgDiv.css({
 					width: picWidth,
 					height: 0,
