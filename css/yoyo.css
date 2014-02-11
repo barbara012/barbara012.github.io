@@ -186,7 +186,7 @@ a img {
 .img--full {
 	border: 6px solid #fafafa;
 	margin: 0 auto;
-	height: 100px;
+	width: 100px;
 	position: relative;
 }
 .img--full img {
