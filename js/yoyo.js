@@ -288,7 +288,7 @@
 			fullImg.appendTo(fullImgDiv);
 			describeText.appendTo(fullImgDiv);
 			fullImgDiv.appendTo($canvs);
-			if (fullImg.complete) {
+			fullImg.load(function () {
 				var w = parseInt(fullImg.width(), 10),
 					h = parseInt(fullImg.height(), 10);
 				picWidth = picHeight * (w / h);
@@ -324,7 +324,7 @@
 						}
 					}
 				);
-			};
+			});
 
 			$('<a href="javascript:;"></a>')
 				.addClass('close')
