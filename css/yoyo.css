@@ -7,6 +7,9 @@ body {
 	font-size: 100%;
 	color: #666666;
 	background: url(../images/bg-body.gif) repeat fixed;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 }
 a img {
