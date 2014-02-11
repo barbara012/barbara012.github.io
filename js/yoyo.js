@@ -288,11 +288,11 @@
 
 			describeText.appendTo(fullImgDiv);
 			fullImgDiv.appendTo($canvs);
+
 			fullImg.load(function () {
 
-				fullImg
-					.children('.load').remove()
-					.appendTo(fullImgDiv);
+				fullImgDiv.children('.load').remove();
+				fullImg.appendTo(fullImgDiv);
 
 				var w = parseInt(fullImg.width(), 10),
 					h = parseInt(fullImg.height(), 10);

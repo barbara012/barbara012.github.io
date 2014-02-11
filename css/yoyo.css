@@ -187,6 +187,7 @@ a img {
 	border: 6px solid #fafafa;
 	margin: 0 auto;
 	width: 319px;
+	background: #ffffff;
 	position: relative;
 }
 .img--full .load {
