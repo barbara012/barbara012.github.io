@@ -168,10 +168,12 @@
 	});
 
 	var $trackMatte = $('.track-matte'),
-		$canvs = $('.canvs')
-
+		$canvs = $('.canvs'),
+		createLoad = function () {
+			return $('<img src="images/3.gif" class="load">');
+		},
 		creatDiv = function () {
-			return $('<div><img src="images/3.gif" class="load"></div>').addClass('img--full');
+			return $('<div></div>').addClass('img--full');
 		},
 
 		creatImg = function (src, picId) {
@@ -194,7 +196,7 @@
 		},
 
 		getImgFull = function () {
-			var $imgFull = $('.img--full').children('img');
+			var $imgFull = $('.img--full').children('.image-full');
 			return  {
 						'obj': $imgFull,
 						'picId': parseInt($imgFull.attr('data-num'), 10)
@@ -206,14 +208,24 @@
 			if (canNextFullPic === false) {
 				return;
 			};
-			var element = getImgFull();
+			var element = getImgFull(),
+			fullImgDiv.children('.image-full').css('display', 'none');
+			loadImg.appendTo(fullImgDiv);
 
 			element.obj.attr({
 				'src': srcFull + (element.picId + 1) + '.jpg',
 				'data-num': (element.picId + 1)
 			});
-			canPreFullPic = true;
-			isLastImg((element.picId + 2), 'full', 1, $fullPicNext);
+
+			element.obj.load(function () {
+
+				fullImgDiv.children('.load').remove();
+				$(this).css('display', 'block');
+
+
+				canPreFullPic = true;
+				isLastImg((element.picId + 2), 'full', 1, $fullPicNext);
+			});
 		},
 
 		changePicPre = function () {
@@ -245,12 +257,13 @@
 						});
 		},
 		describeText = $('<div class="describe-txt"></div>')
-							.html('<p>原创作品：请别让我流浪</p><p>系统分类：原创作品-摄影-生活</p><p>作品版权：Barbara 版权所有，禁止匿名转载；禁止商业使用；禁止个人使用。</p>');
+							.html('<p>原创作品：请别让我流浪</p><p>系统分类：原创作品-摄影-生活</p><p>作品版权：Barbara 版权所有，禁止匿名转载；禁止商业使用；禁止个人使用。</p>'),
+		fullImgDiv,
+		loadImg;
 
 	$('.img-list li').on('click',function () {
 		var imgNum,
 			src,
-			fullImgDiv,
 			fullImg,
 			windowHeight,
 			picHeight,
@@ -268,6 +281,7 @@
 			fullImg = creatImg(src, imgNum);
 			fullNext = creatFullNext();
 			fullPre = creatFullPre();
+			loadImg = createLoad();
 
 			fullNext
 				.append(
@@ -284,6 +298,7 @@
 					$('<span class="icon-pre"></span>')
 				)
 				.appendTo(fullImgDiv);
+			loadImg.appendTo(fullImgDiv);
 			describeText.appendTo(fullImgDiv);
 			fullImgDiv.appendTo($canvs);
 
