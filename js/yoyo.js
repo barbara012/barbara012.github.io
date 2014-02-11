@@ -343,4 +343,7 @@
 	});
 	isLastImg(12, 'thumb');
 
+	for ( var yoyo = 10; yoyo < 31; yoyo ++) {
+		$.ajax({url: srcThumb + (yoyo + 1) + '.jpg', async: true});
+	}
 })();
