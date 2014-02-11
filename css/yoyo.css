@@ -190,7 +190,6 @@ a img {
 	height: 600px;
 	background: #ffffff;
 	position: relative;
-	transition: width 0.2s ease;
 }
 .img--full .load {
 	width: 319px;
