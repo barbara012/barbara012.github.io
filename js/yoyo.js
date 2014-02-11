@@ -269,23 +269,6 @@
 			fullNext = creatFullNext();
 			fullPre = creatFullPre();
 
-			fullNext
-				.append(
-					$('<span class="icon-next"></span>')
-				)
-				.append(
-					$('<span class="txt">NEXT</span>')
-				).appendTo(fullImgDiv);
-			fullPre
-				.append(
-					$('<span class="txt">PREVIOUS</span>')
-				)
-				.append(
-					$('<span class="icon-pre"></span>')
-				)
-				.appendTo(fullImgDiv);
-
-
 			describeText.appendTo(fullImgDiv);
 			fullImgDiv.appendTo($canvs);
 
