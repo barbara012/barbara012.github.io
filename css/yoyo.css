@@ -274,7 +274,9 @@ a img {
 	-webkit-transition: all 0.2s ease;
 }
 .footer {
-	border-top: #E5D8DC 1px solid;
+	border-bottom: 4px solid #f6f5f1;
+	background: #ffffff;
+	box-shadow: 0 1px 0 #d2d2d3, 0 1px 3px rgba(0,0,0,.2);
 	background: #F7FAFB;
 	padding: 60px 0;
 }
