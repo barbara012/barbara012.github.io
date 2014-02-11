@@ -208,7 +208,7 @@
 			if (canNextFullPic === false) {
 				return;
 			};
-			var element = getImgFull(),
+			var element = getImgFull();
 			fullImgDiv.children('.image-full').css('display', 'none');
 			loadImg.appendTo(fullImgDiv);
 
