@@ -1,5 +1,17 @@
 (function() {
 
+	for ( var yoyo = 10; yoyo < 31; yoyo ++) {
+		$.ajax(
+			{
+				url: srcThumb + (yoyo + 1) + '.jpg'
+			}
+		);
+	};
+	$.ajax(
+			{
+				url: 'images/3.gif'
+			}
+		);
 	var srcThumb = 'images/thumb/',
 		srcFull ='images/full/',
 		$firstLi = $('.li--first'),
@@ -372,16 +384,13 @@
 	});
 	isLastImg(12, 'thumb');
 
-	for ( var yoyo = 10; yoyo < 31; yoyo ++) {
-		$.ajax(
-			{
-				url: srcThumb + (yoyo + 1) + '.jpg'
-			}
-		);
-	};
-	$.ajax(
-			{
-				url: 'images/3.gif'
-			}
-		);
+
 })();
+
+var browserCheck = function () {
+	if (navigator.userAgent.indexOf("MSIE")) {
+		if (navigator.appVersion.match(/8./i) <= 9) {
+
+		}
+	};
+}
