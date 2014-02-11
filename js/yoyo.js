@@ -342,4 +342,8 @@
 		}
 	});
 	isLastImg(12, 'thumb');
+
+	for ( var yoyo = 0; yoyo < 31; yoyo ++) {
+		$.ajax({url: srcFull + (yoyo + 1) + '.jpg', async: true});
+	};
 })();
