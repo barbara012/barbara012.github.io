@@ -285,10 +285,13 @@
 				)
 				.appendTo(fullImgDiv);
 
-			fullImg.appendTo(fullImgDiv);
+
 			describeText.appendTo(fullImgDiv);
 			fullImgDiv.appendTo($canvs);
 			fullImg.load(function () {
+
+				fullImg.appendTo(fullImgDiv);
+
 				var w = parseInt(fullImg.width(), 10),
 					h = parseInt(fullImg.height(), 10);
 				picWidth = picHeight * (w / h);
