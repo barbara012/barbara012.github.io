@@ -186,6 +186,8 @@ a img {
 .img--full {
 	border: 6px solid #fafafa;
 	margin: 0 auto;
+	width: 0;
+	height: 0;
 	position: relative;
 }
 .nav--full--next,
