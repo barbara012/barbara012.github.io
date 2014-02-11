@@ -293,6 +293,21 @@
 
 				fullImgDiv.children('.load').remove();
 				fullImg.appendTo(fullImgDiv);
+				fullNext
+					.append(
+						$('<span class="icon-next"></span>')
+					)
+					.append(
+						$('<span class="txt">NEXT</span>')
+					).appendTo(fullImgDiv);
+				fullPre
+					.append(
+						$('<span class="txt">PREVIOUS</span>')
+					)
+					.append(
+						$('<span class="icon-pre"></span>')
+					)
+					.appendTo(fullImgDiv);
 
 				var w = parseInt(fullImg.width(), 10),
 					h = parseInt(fullImg.height(), 10);
