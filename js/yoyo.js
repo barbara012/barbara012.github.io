@@ -288,7 +288,7 @@
 			fullImg.appendTo(fullImgDiv);
 			describeText.appendTo(fullImgDiv);
 			fullImgDiv.appendTo($canvs);
-			fullImg.load(function () {
+			if (fullImg.complete) {
 				var w = parseInt(fullImg.width(), 10),
 					h = parseInt(fullImg.height(), 10);
 				picWidth = picHeight * (w / h);
@@ -324,7 +324,7 @@
 						}
 					}
 				);
-			});
+			};
 
 			$('<a href="javascript:;"></a>')
 				.addClass('close')
@@ -344,6 +344,10 @@
 	isLastImg(12, 'thumb');
 
 	for ( var yoyo = 10; yoyo < 31; yoyo ++) {
-		$.ajax({url: srcThumb + (yoyo + 1) + '.jpg', async: true});
+		$.ajax(
+			{
+				url: srcThumb + (yoyo + 1) + '.jpg'
+			}
+		);
 	}
 })();
