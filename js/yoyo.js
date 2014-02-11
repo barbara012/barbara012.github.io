@@ -171,7 +171,7 @@
 		$canvs = $('.canvs')
 
 		creatDiv = function () {
-			return $('<div></div>').addClass('img--full');
+			return $('<div><img src="images/3.gif" class="load"></div>').addClass('img--full');
 		},
 
 		creatImg = function (src, picId) {
@@ -290,7 +290,9 @@
 			fullImgDiv.appendTo($canvs);
 			fullImg.load(function () {
 
-				fullImg.appendTo(fullImgDiv);
+				fullImg
+					.children('.load').remove()
+					.appendTo(fullImgDiv);
 
 				var w = parseInt(fullImg.width(), 10),
 					h = parseInt(fullImg.height(), 10);
@@ -352,5 +354,10 @@
 				url: srcThumb + (yoyo + 1) + '.jpg'
 			}
 		);
-	}
+	};
+	$.ajax(
+			{
+				url: 'images/3.gif'
+			}
+		);
 })();
