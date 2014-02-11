@@ -105,11 +105,14 @@ a img {
 	font-size: 0.8em;
 	line-height: 1.5;
 }
+.img-list .li--copyright div {
+	padding: 4px;
+}
 .img-list .li--copyright .title {
 	color: #be5e5b;
 	font-size: 1em;
 	font-weight: bold;
-	margin: 10px 10px 60px;
+	margin: 10px 10px 40px;
 }
 .img-list .li--last a,
 .img-list .li--pre a {
