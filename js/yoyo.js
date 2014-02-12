@@ -1,5 +1,6 @@
 (function() {
-
+	var srcThumb = 'images/thumb/',
+		srcFull ='images/full/';
 	for ( var yoyo = 10; yoyo < 31; yoyo ++) {
 		$.ajax(
 			{
@@ -12,8 +13,12 @@
 				url: 'images/3.gif'
 			}
 		);
-	var srcThumb = 'images/thumb/',
-		srcFull ='images/full/',
+	$.ajax(
+			{
+				url: 'images/4.gif'
+			}
+		);
+	var
 		$firstLi = $('.li--first'),
 		$moreLi = $('.li--more'),
 		flagNum = $('.img-li:last').children('a').children('img').data('num'),
@@ -179,7 +184,7 @@
 		}
 	});
 
-	var $trackMatte = $('.track-matte'),
+	var	$trackMatte = $('.track-matte'),
 		$canvs = $('.canvs'),
 		createLoad = function () {
 			return $('<img src="images/3.gif" class="load">');
@@ -199,9 +204,10 @@
 			$canvs.hide();
 			$trackMatte.hide();
 			$canvs.empty();
+			$trackMatte.empty();
 			describeText.css(
 				{
-					'bottom': '0',
+					'top': '0',
 					'opacity': '0'
 				}
 			)
@@ -355,7 +361,7 @@
 							describeText.animate(
 								{
 									opacity: 1,
-									bottom: '-85px'
+									top: picHeight + 10
 								},
 								{
 									easing: 'easeOutExpo',
@@ -383,14 +389,4 @@
 		}
 	});
 	isLastImg(12, 'thumb');
-
-
 })();
-
-var browserCheck = function () {
-	if (navigator.userAgent.indexOf("MSIE")) {
-		if (navigator.appVersion.match(/8./i) <= 9) {
-
-		}
-	};
-}

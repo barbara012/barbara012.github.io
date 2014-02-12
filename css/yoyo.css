@@ -169,6 +169,15 @@ a img {
 	bottom: 0;
 	left: 0;
 }
+.amazed {
+	width: 98px;
+	height: 114px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -57px;
+	margin-left: -49px;
+}
 .close {
 	width: 80px;
 	height: 80px;
