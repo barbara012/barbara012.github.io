@@ -15,6 +15,9 @@ body {
 a img {
 	border: none;
 }
+.float-right {
+	float: right;
+}
 .w-96 {
 	width: 96%;
 	margin: 0 auto;
