@@ -18,6 +18,7 @@ a img {
 .float-right {
 	float: right;
 	font-size: 0.6em;
+	color: #dedede;
 }
 .w-96 {
 	width: 96%;
