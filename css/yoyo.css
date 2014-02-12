@@ -15,6 +15,19 @@ body {
 a img {
 	border: none;
 }
+ul {
+	list-style: none;	
+}
+.en {
+
+}
+.clear-fix:after {
+	content: "";
+	display: block;
+	height: 0;
+	width: 0;
+	clear: both;
+}
 .float-right {
 	float: right;
 	font-size: 0.6em;
@@ -52,7 +65,27 @@ a img {
 	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
 }
 .head .w-96 {
-	padding: 40px 0;
+	padding: 40px 0 0;
+}
+.head_nav {
+	margin-top: 20px;
+	font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+}
+.head_nav li {
+	float: right;
+}
+.head_nav li a {
+	text-decoration: none;
+	display: inline-block;
+	color: #666666;
+	padding: 4px 20px;
+}
+.head_nav li a.selected {
+	background: #cfcfcf;
+	box-shadow: 0 5px 0 #0078b6;
+}
+.head_nav li a:link {
+	color: #666666;
 }
 .bg-jx {
 	width: 403px;
@@ -320,6 +353,18 @@ a img {
 	color: #BBC7CC;
 	text-align: center;
 }
+
+/*article*/
+.main article {
+	padding: 40px;
+}
+.main article h2 {
+	margin-bottom: 20px;
+}
+.main article p {
+	line-height: 1.8;
+}
+
 @media all and (max-width:1440px) {
 	.body .main,
 	.canvs {
