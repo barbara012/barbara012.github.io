@@ -1,9 +1,4 @@
 (function() {
-	$.ajax(
-			{
-				url: 'images/5.gif'
-			}
-		);
 	var createArticleLoad = function () {
 			return $('<img src="../images/5.gif" class="article-load">');
 		},
