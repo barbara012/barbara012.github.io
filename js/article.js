@@ -20,7 +20,7 @@
 							content += '<p>' + arrayTxt[i] + '</p>';
 						};
 						$content.html(content);
-						$audio.empty();
+						$audio.empty().append('<span class="before"></span>');
 						console.log(createMusic());
 						createMusic().attr('src', musicUrl)
 									.appendTo($audio);
