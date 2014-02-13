@@ -486,6 +486,9 @@ ul a:link {
 	-webkit-transition: all 0.2s ease;
 	-ms-transition: all 0.2s ease;
 	transition: all 0.2s ease;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .article-nav a:hover {
 	-webkit-transform: translateX(0);

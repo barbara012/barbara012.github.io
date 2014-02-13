@@ -3,10 +3,11 @@
 			return $('<img src="../images/5.gif" class="article-load">');
 		},
 		createMusic = function () {
-			return $('<audio controls="controls" ></audio>').text('你的浏览器不支持音频元素（audio）标签');
+			return $('<audio controls="controls" autoplay="autoplay"></audio>').text('你的浏览器不支持音频元素（audio）标签');
 		}
 		$content = $('.content'),
 		$audio = $('.audio'),
+		$articleNav = $('.update-article');
 		resetArticle = function (txtUrl, musicUrl) {
 			$.ajax(
 				{
@@ -27,9 +28,10 @@
 				}
 			)
 		};
-	resetArticle('../article/time.txt', '../audio/sjdqnl.mp3');
-	$('.update-article').click(function () {
-
+	resetArticle('../article/gto.txt', '../audio/gto.mp3');
+	$articleNav.click(function () {
+		$articleNav.removeClass('selected');
+		$(this).addClass('selected');
 		$content.empty().append(createArticleLoad());
 		var articleUrl = $(this).data('txt'),
 			musicUrl = $(this).data('music');
