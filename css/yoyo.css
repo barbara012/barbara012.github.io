@@ -424,7 +424,7 @@ ul a:link {
 	-moz-transition: all 0.2s ease-in;
 	transition: all 0.2s ease-in;
 }
-@-webkit-keyframes 'music' {
+@-webkit-keyframes music {
 	0% {		
 		box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
 		-webkit-transform: rotate(0deg);
@@ -440,39 +440,7 @@ ul a:link {
 		transform: rotate(360deg);
 	}
 }
-@-ms-keyframes 'music' {
-	0% {		
-		box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
-		-webkit-transform: rotate(0deg);
-		-moz-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
-	100% {
-		box-shadow: 0 0 0 4px rgba(68, 107, 128, 0.5);
-		-webkit-transform: rotate(360deg);
-		-moz-transform: rotate(360deg);
-		-ms-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
-}
-@-moz-keyframes 'music' {
-	0% {		
-		box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
-		-webkit-transform: rotate(0deg);
-		-moz-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
-	100% {
-		box-shadow: 0 0 0 4px rgba(68, 107, 128, 0.5);
-		-webkit-transform: rotate(360deg);
-		-moz-transform: rotate(360deg);
-		-ms-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
-}
-@keyframes 'music' {
+@keyframes music {
 	0% {		
 		box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
 		-webkit-transform: rotate(0deg);
@@ -503,12 +471,12 @@ ul a:link {
 	position: absolute;
 	left: -40px;
 	top: 0px;
-	-webkit-animation: 'music' 3s linear infinite ;
-	-ms-animation: 'music' 3s linear infinite;
-	-moz-animation-name: 'music';/*动画属性名，也就是我们前面keyframes定义的动画名*/
-    -moz-animation-duration: 3s;/*动画持续时间*/
-    -moz-animation-timing-function: linear; /*动画频率，和transition-timing-function是一样的*/
-    -moz-animation-iteration-count: infinite;/*定义循环资料，infinite为无限次*/
+	-webkit-animation: music 3s linear infinite ;
+	-ms-animation: music 3s linear infinite;
+	animation-name: music;/*动画属性名，也就是我们前面keyframes定义的动画名*/
+    animation-duration: 3s;/*动画持续时间*/
+    animation-timing-function: linear; /*动画频率，和transition-timing-function是一样的*/
+    animation-iteration-count: infinite;/*定义循环资料，infinite为无限次*/
     -webkit-transition: all 5s ease;
     -ms-transition: all 5s ease;
     -moz-transition: all 5s ease;
