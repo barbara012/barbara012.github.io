@@ -493,10 +493,10 @@ ul a:link {
 	top: 0px;
 	-webkit-animation: music 3s linear infinite ;
 	-ms-animation: music 3s linear infinite;
-	animation-name: music;/*动画属性名，也就是我们前面keyframes定义的动画名*/
-    animation-duration: 3s;/*动画持续时间*/
-    animation-timing-function: linear; /*动画频率，和transition-timing-function是一样的*/
-    animation-iteration-count: infinite;/*定义循环资料，infinite为无限次*/
+	animation-name: music;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
     -webkit-transition: all 5s ease;
     -ms-transition: all 5s ease;
     -moz-transition: all 5s ease;
