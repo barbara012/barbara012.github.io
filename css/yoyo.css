@@ -87,12 +87,15 @@ ul {
 .head_nav li a:link {
 	color: #666666;
 }
+.main {
+	position: relative;
+}
 .bg-jx {
 	width: 403px;
 	height: 393px;
 	background: url(../images/jx2.png) no-repeat;
 	position: absolute;
-	bottom: 100px;
+	bottom: 20px;
 	right: 20px;
 	filter: alpha(opacity=10);
 	opacity: 0.1;
@@ -357,14 +360,26 @@ ul {
 /*article*/
 .main article {
 	padding: 40px;
+	width: 500px;
+	margin: 20px auto 1px;
+	background: #ffffff;
+	border: 1px solid #cacaca;
+	border-top: 10px solid #0078b6;
+	box-sizing: border-box;
 }
 .main article h2 {
 	margin-bottom: 20px;
 }
 .main article p {
 	line-height: 1.8;
+	font-size: 0.8em;
 }
-
+.main .letter {
+	width: 542px;
+	height: 282px;
+	margin: 0 auto;
+	background: url(../images/letter.png) no-repeat;
+}
 @media all and (max-width:1440px) {
 	.body .main,
 	.canvs {
