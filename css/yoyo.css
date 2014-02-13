@@ -28,6 +28,12 @@ a img {
 ul {
 	list-style: none;	
 }
+ul a {
+	text-decoration: none;
+}
+ul a:link {
+	text-decoration: none;
+}
 .en {
 
 }
@@ -99,6 +105,7 @@ ul {
 }
 .main {
 	position: relative;
+	transition: all 0.2s ease;
 }
 .bg-jx {
 	width: 403px;
@@ -370,7 +377,7 @@ ul {
 /*article*/
 .main .article {	
 	width: 500px;
-	margin: 20px auto 4px;
+	margin: 20px auto -1px;
 	background: #ffffff;	
 	box-sizing: border-box;
 	position: relative;
@@ -399,6 +406,7 @@ ul {
 	width: 542px;
 	height: 282px;
 	margin: 0 auto;
+	position: relative;
 	background: url(../images/letter.png) no-repeat;
 }
 .audio {
@@ -408,6 +416,12 @@ ul {
 	top: 240px;
 	right: 0;
 	-webkit-transform: translateX(300px);
+	-ms-transform: translateX(300px);
+	-moz-transform: translateX(300px);
+	transform: translateX(300px);
+	-webkit-transition: all 0.2s ease-in;
+	-ms-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
 	transition: all 0.2s ease-in;
 }
 .audio:before {
@@ -426,7 +440,6 @@ ul {
 	position: absolute;
 	left: -40px;
 	top: 0px;
-	transition: all 1s ease;
 }
 .audio audio {
 	width: 300px;
@@ -435,12 +448,53 @@ ul {
 }
 .audio:hover {
 	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	-ms-transform: translateX(0);
+	transform: translateX(0);
 }
 .article-load {
 	width: 46px;
 	height: 41px;
 	margin: 30px auto;
 	display: block;
+}
+.article-nav {
+	position: absolute;
+	top: 40px;
+	left: 0;
+}
+.article-nav a {
+	display: inline-block;
+	padding: 6px 10px;
+	background: #ffffff;
+	color: #555555;
+	width: 140px;
+	text-align: right;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.25);
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.25);
+	-ms-box-shadow: 0 1px 1px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.25);
+	margin-bottom: 10px;
+	border-right: 10px solid #1ABC9C;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	-webkit-transform: translateX(-120px);
+	-moz-transform: translateX(-120px);
+	-ms-transform: translateX(-120px);
+	transform: translateX(-120px);
+	-moz-transition: all 0.2s ease;
+	-webkit-transition: all 0.2s ease;
+	-ms-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+.article-nav a:hover {
+	-webkit-transform: translateX(0);
+	-ms-transform: translateX(0);
+	-moz-transform: translateX(0);
+	transform: translateX(0);
+}
+.article-nav .selected {
+	border-right-color: #0078b6;
 }
 @media all and (max-width:1440px) {
 	.body .main,
