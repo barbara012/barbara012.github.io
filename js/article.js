@@ -3,7 +3,7 @@
 			return $('<img src="../images/5.gif" class="article-load">');
 		},
 		createMusic = function () {
-			return $('<audio controls="controls" autoplay="autoplay"></audio>').text('你的浏览器不支持音频元素（audio）标签');
+			return $('<audio controls autoplay="autoplay"></audio>').text('你的浏览器不支持音频元素（audio）标签');
 		}
 		$content = $('.content'),
 		$audio = $('.audio'),
