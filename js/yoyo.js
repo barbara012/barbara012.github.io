@@ -8,16 +8,6 @@
 			}
 		);
 	};
-	$.ajax(
-			{
-				url: 'images/3.gif'
-			}
-		);
-	$.ajax(
-			{
-				url: 'images/4.gif'
-			}
-		);
 	var
 		$firstLi = $('.li--first'),
 		$moreLi = $('.li--more'),
