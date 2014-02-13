@@ -424,7 +424,7 @@ ul a:link {
 	-moz-transition: all 0.2s ease-in;
 	transition: all 0.2s ease-in;
 }
-@-webkit-keyframes music {
+@-webkit-keyframes 'music' {
 	0% {		
 		box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
 		-webkit-transform: rotate(0deg);
@@ -440,7 +440,7 @@ ul a:link {
 		transform: rotate(360deg);
 	}
 }
-@-ms-keyframes music {
+@-ms-keyframes 'music' {
 	0% {		
 		box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
 		-webkit-transform: rotate(0deg);
@@ -456,7 +456,7 @@ ul a:link {
 		transform: rotate(360deg);
 	}
 }
-@-moz-keyframes music {
+@-moz-keyframes 'music' {
 	0% {		
 		box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
 		-webkit-transform: rotate(0deg);
@@ -472,7 +472,7 @@ ul a:link {
 		transform: rotate(360deg);
 	}
 }
-@keyframes music {
+@keyframes 'music' {
 	0% {		
 		box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
 		-webkit-transform: rotate(0deg);
