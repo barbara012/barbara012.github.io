@@ -97,11 +97,15 @@ ul a:link {
 	padding: 4px 20px;
 }
 .head_nav li a.selected {
-	background: #cfcfcf;
-	box-shadow: 0 5px 0 #0078b6;
+	background: #F5EDED;
+	box-shadow: 0 5px 0 #0078b6, 0 -1px 4px rgba(0,0,0,0.5);
+	color: #333333;
 }
 .head_nav li a:link {
 	color: #666666;
+}
+.head_nav li .selected:link {
+	color: #333333;
 }
 .main {
 	position: relative;
@@ -383,7 +387,12 @@ ul a:link {
 	position: relative;
 }
 .border-top {
-	border-top: 30px solid #0078b6;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #0078b6;
+	color: #ffffff;
+	font-weight: bold;
 }
 .article .content {
 	padding: 40px;

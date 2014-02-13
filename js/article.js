@@ -7,7 +7,8 @@
 		}
 		$content = $('.content'),
 		$audio = $('.audio'),
-		$articleNav = $('.update-article');
+		$articleNav = $('.update-article'),
+		$articleTitle = $('.article-title');
 		resetArticle = function (txtUrl, musicUrl) {
 			$.ajax(
 				{
@@ -16,9 +17,10 @@
 					success: function (txt) {
 						var arrayTxt = txt.split(';'),
 							content = '';
-						for (var i = 0; i < arrayTxt.length; i++) {
+						for (var i = 1; i < arrayTxt.length; i++) {
 							content += '<p>' + arrayTxt[i] + '</p>';
 						};
+						$articleTitle.text(arrayTxt[0]);
 						$content.html(content);
 						$audio.empty().append('<span class="before"></span>');
 						console.log(createMusic());
