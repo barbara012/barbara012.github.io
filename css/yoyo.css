@@ -358,14 +358,19 @@ ul {
 }
 
 /*article*/
-.main article {
-	padding: 40px;
+.main .article {	
 	width: 500px;
 	margin: 20px auto 1px;
-	background: #ffffff;
-	border: 1px solid #cacaca;
-	border-top: 10px solid #0078b6;
+	background: #ffffff;	
 	box-sizing: border-box;
+}
+.border-top {
+	border-top: 30px solid #0078b6;
+}
+.article .content {
+	padding: 40px;
+	border: 1px solid #cacaca;
+	border-top-width: 0;
 }
 .main article h2 {
 	margin-bottom: 20px;
