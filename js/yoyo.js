@@ -338,7 +338,7 @@
 
 		if ($(this).hasClass('img-li')) {
 			windowHeight = parseInt($(window).height(), 10);
-			picHeight = windowHeight - windowHeight * 0.3;
+			picHeight = windowHeight;
 
 			imgNum = parseInt($(this).children('a').children('img').attr('data-num'), 10);
 			src = (srcFull + imgNum + '.jpg');
