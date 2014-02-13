@@ -1,6 +1,7 @@
 (function() {
 	var srcThumb = 'images/thumb/',
-		srcFull ='images/full/';
+		srcFull ='images/full/',
+		picDes = new Array();
 	for ( var yoyo = 10; yoyo < 31; yoyo ++) {
 		$.ajax(
 			{
@@ -8,6 +9,17 @@
 			}
 		);
 	};
+
+	$.ajax(
+		{
+			type: 'GET',
+			url: '../images/picdes/pic-describe.txt',
+			success: function (txt) {
+				picDes = txt.split(';');
+			}
+		}
+	);
+
 	var
 		$firstLi = $('.li--first'),
 		$moreLi = $('.li--more'),
@@ -176,6 +188,8 @@
 
 	var	$trackMatte = $('.track-matte'),
 		$canvs = $('.canvs'),
+		picHeight,
+		describeText = $('<div class="describe-txt"></div>'),
 		createLoad = function () {
 			return $('<img src="images/3.gif" class="load">');
 		},
@@ -219,18 +233,34 @@
 			var element = getImgFull();
 			fullImgDiv.children('.image-full').css('display', 'none');
 			loadImg.appendTo(fullImgDiv);
-
+			describeText.css(
+				{
+					opacity: '0',
+					top: '0'
+				}
+			);
 			element.obj.attr({
 				'src': srcFull + (element.picId + 1) + '.jpg',
 				'data-num': (element.picId + 1)
 			});
-
 			element.obj.load(function () {
 
 				fullImgDiv.children('.load').remove();
 				$(this).css('display', 'block');
-
-
+				var w = parseInt(element.obj.width(), 10),
+					h = parseInt(element.obj.height(), 10);
+				picWidth = picHeight * (w / h);
+				describeText.empty().append('<p>' + picDes[element.picId]+ '</p>')
+							.animate(
+								{
+									opacity: 1,
+									top: picHeight + 10
+								},
+								{
+									easing: 'easeOutExpo',
+									duration: '100'
+								}
+							);
 				canPreFullPic = true;
 				isLastImg((element.picId + 2), 'full', 1, $fullPicNext);
 			});
@@ -244,16 +274,35 @@
 			var element = getImgFull();
 			fullImgDiv.children('.image-full').css('display', 'none');
 			loadImg.appendTo(fullImgDiv);
-
+			describeText.css(
+				{
+					opacity: '0',
+					top: '0'
+				}
+			);
 			element.obj.attr({
 				'src': srcFull + (element.picId - 1) + '.jpg',
 				'data-num': (element.picId - 1)
 			});
-
+			
 			element.obj.load(function () {
 
 				fullImgDiv.children('.load').remove();
 				$(this).css('display', 'block');
+				var w = parseInt(element.obj.width(), 10),
+					h = parseInt(element.obj.height(), 10);
+				picWidth = picHeight * (w / h);
+				describeText.empty().append('<p>' + picDes[element.picId-2]+ '</p>')
+							.animate(
+								{
+									opacity: 1,
+									top: picHeight + 10
+								},
+								{
+									easing: 'easeOutExpo',
+									duration: '100'
+								}
+							);
 
 				canNextFullPic = true;
 				isLastImg((element.picId - 2), 'full', 2, $fullPicPre);
@@ -274,9 +323,7 @@
 						.click(function () {
 							changePicPre();
 						});
-		},
-		describeText = $('<div class="describe-txt"></div>')
-							.html('<p>原创作品：请别让我流浪</p><p>系统分类：原创作品-摄影-生活</p><p>作品版权：Barbara 版权所有，禁止匿名转载；禁止商业使用；禁止个人使用。</p>'),
+		},		
 		fullImgDiv,
 		loadImg;
 
@@ -285,7 +332,6 @@
 			src,
 			fullImg,
 			windowHeight,
-			picHeight,
 			picWidth,
 			fullNext,
 			fullPre;
@@ -318,7 +364,7 @@
 				)
 				.appendTo(fullImgDiv);
 			loadImg.appendTo(fullImgDiv);
-			describeText.appendTo(fullImgDiv);
+			describeText.empty().append('<p>' + picDes[imgNum-1] + '</p>').appendTo(fullImgDiv);
 			fullImgDiv.appendTo($canvs);
 
 			fullImg.load(function () {
