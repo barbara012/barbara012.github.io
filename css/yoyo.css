@@ -381,7 +381,7 @@ ul a:link {
 /*article*/
 .main .article {	
 	width: 500px;
-	margin: 20px auto -1px;
+	margin: 20px auto 10px;
 	background: #ffffff;	
 	box-sizing: border-box;
 	position: relative;
