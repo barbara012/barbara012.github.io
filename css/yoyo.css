@@ -98,7 +98,13 @@ ul a:link {
 	display: inline-block;
 	color: #666666;
 	padding: 4px 20px;
-	margin-left: 10px;
+	margin-left: 20px;
+	box-shadow: 0 5px 0 transparent;
+	transition: all 0.2s ease;
+}
+.head_nav li a:hover {
+	background: #fafafa;
+	box-shadow: 0 5px 0 #99d7f6;
 }
 .head_nav li a.selected {
 	background: #F5EDED;
