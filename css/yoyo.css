@@ -276,8 +276,8 @@ ul a:link {
 .img--full {
 	border: 6px solid #fafafa;
 	margin: 0 auto;
-	width: 1040px;
-	height: 600px;
+	width: 600px;
+	height: 400px;
 	background: #ffffff;
 	position: relative;
 }
