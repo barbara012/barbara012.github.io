@@ -23,7 +23,6 @@
 						$articleTitle.text(arrayTxt[0]);
 						$content.html(content);
 						$audio.empty().append('<span class="before"></span>');
-						console.log(createMusic());
 						createMusic().attr('src', musicUrl)
 									.appendTo($audio);
 					}

@@ -66,11 +66,11 @@
 
 			            if (hwh === 1) {
 			            	 canNextFullPic = false;
-
+			            	 canPreFullPic = true;
 			            	 elemt.children('.txt').text('END');
 			            } else if (hwh === 2) {
 			            	canPreFullPic = false;
-
+			            	canNextFullPic = true;
 			            	elemt.children('.txt').text('END');
 			            } else {
 			            	canNext = false;
@@ -245,7 +245,7 @@
 			if (canNextFullPic === false) {
 				return;
 			};
-			var elementNext = getImgFull(),
+			var element = getImgFull(),
 				objSize;
 			fullImgDiv.children('.image-full').css(
 				{
@@ -259,15 +259,15 @@
 					top: '0'
 				}
 			);
-			elementNext.obj.attr({
-				'src': srcFull + (elementNext.picId + 1) + '.jpg',
-				'data-num': (elementNext.picId + 1)
+			element.obj.attr({
+				'src': srcFull + (element.picId + 1) + '.jpg',
+				'data-num': (element.picId + 1)
 			});
-			elementNext.obj.load(function () {
+			element.obj.load(function () {
 
 				fullImgDiv.children('.load').remove();
 				
-				objSize = getPicSize(elementNext.obj);
+				objSize = getPicSize(element.obj);
 				
 				$(this).css(
 					{
@@ -275,7 +275,7 @@
 						'height': objSize.h
 					}
 				);
-				describeText.empty().append('<p>' + picDes[elementNext.picId]+ '</p>')
+				describeText.empty().append('<p>' + picDes[element.picId]+ '</p>')
 							.css(
 								{
 									'top': objSize.h + 10
@@ -283,7 +283,7 @@
 							);
 				canPreFullPic = true;
 				$fullPicPre.children('.txt').text('PREVIOUS');
-				isLastImg((elementNext.picId + 2), 'full', 1, $fullPicNext);
+				isLastImg((element.picId + 2), 'full', 1, $fullPicNext);
 			});
 		},
 
@@ -292,7 +292,7 @@
 			if (canPreFullPic === false) {
 				return;
 			};
-			var elementPre = getImgFull(),
+			var element = getImgFull(),
 				objSize;
 			fullImgDiv.children('.image-full').css(
 				{
@@ -307,23 +307,23 @@
 					top: '0'
 				}
 			);
-			elementPre.obj.attr({
-				'src': srcFull + (elementPre.picId - 1) + '.jpg',
-				'data-num': (elementPre.picId - 1)
+			element.obj.attr({
+				'src': srcFull + (element.picId - 1) + '.jpg',
+				'data-num': (element.picId - 1)
 			});
 			
-			elementPre.obj.load(function () {
+			element.obj.load(function () {
 
 				fullImgDiv.children('.load').remove();
 				
-				objSize = getPicSize(elementPre.obj);
+				objSize = getPicSize(element.obj);
 				$(this).css(
 					{
 						'display': 'block',
 						'height': objSize.h
 					}
 				);
-				describeText.empty().append('<p>' + picDes[elementPre.picId-2]+ '</p>')
+				describeText.empty().append('<p>' + picDes[element.picId-2]+ '</p>')
 							.css(
 								{
 									'top': objSize.h + 10
@@ -332,7 +332,7 @@
 
 				canNextFullPic = true;
 				$fullPicNext.children('.txt').text('NEXT');
-				isLastImg((elementPre.picId - 2), 'full', 2, $fullPicPre);
+				isLastImg((element.picId - 2), 'full', 2, $fullPicPre);
 			});
 
 
@@ -340,21 +340,29 @@
 
 		creatFullNext = function () {
 			return $('<a href="javascript:;" class="nav--full nav--full--next"></a>')
-						.click(function (e) {
-							if (e.currentTarget.tagName == 'A') {
-								changePicNext();
-								console.log(e.currentTarget.tagName);
-							}
-						});
+						.append(
+							$('<span class="icon-next"></span>')
+								.click(function (e) {
+									changePicNext();
+								})
+						)
+						.append(
+							$('<span class="txt">NEXT</span>')
+						);
 		},
 
 		creatFullPre = function () {
 			return $('<a href="javascript:;" class="nav--full nav--full--pre"></a>')
-						.click(function (e) {
-
-							changePicPre();
-							console.log(e.currentTarget.tagName);
-						});
+						.append(
+							$('<span class="txt">PREVIOUS</span>')								
+						)
+						.append(
+							$('<span class="icon-pre"></span>')
+								.click(function (e) {
+									changePicPre();
+								})
+						);
+						
 		},		
 		fullImgDiv,
 		loadImg;
@@ -377,22 +385,8 @@
 			fullPre = creatFullPre();
 			loadImg = createLoad();
 
-			fullNext
-				.append(
-					$('<span class="icon-next"></span>')
-				)
-				.append(
-					$('<span class="txt">NEXT</span>')
-				)
-				.appendTo(fullImgDiv);
-			fullPre
-				.append(
-					$('<span class="txt">PREVIOUS</span>')
-				)
-				.append(
-					$('<span class="icon-pre"></span>')
-				)
-				.appendTo(fullImgDiv);
+			fullNext.appendTo(fullImgDiv);
+			fullPre.appendTo(fullImgDiv);
 			loadImg.appendTo(fullImgDiv);
 			describeText.empty().append('<p>' + picDes[imgNum-1] + '</p>').appendTo(fullImgDiv);
 			fullImgDiv.appendTo($canvs);

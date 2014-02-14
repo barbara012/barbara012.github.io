@@ -67,6 +67,8 @@ ul a:link {
 }
 .head h1 {
 	font-size: 4em;
+	-webkit-text-stroke: 4px #666666;
+	color: transparent;
 	font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
 }
 .head p {
