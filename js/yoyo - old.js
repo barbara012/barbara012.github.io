@@ -62,7 +62,7 @@
 			    	} else if (hwh ===2) {
 
 			    		canPreFullPic = true;
-
+			    		
 			    	};
 			    },
 			    error: function (xhr, status) {
@@ -287,10 +287,7 @@
 							);
 				canPreFullPic = true;
 				$fullPicPre.children('.txt').text('PREVIOUS');
-				if (element.picId + 1 == 41) {
-					canNextFullPic = false;
-					$fullPicNext.children('.txt').text('END');
-				}
+				isLastImg((element.picId + 2), 'full', 1, $fullPicNext);
 			});
 		},
 
@@ -339,11 +336,7 @@
 
 				canNextFullPic = true;
 				$fullPicNext.children('.txt').text('NEXT');
-				if (element.picId - 1 == 1) {
-					canPreFullPic = false;
-					canNextFullPic = true;
-					$fullPicPre.children('.txt').text('END');
-				}
+				isLastImg((element.picId - 2), 'full', 2, $fullPicPre);
 			});
 
 
@@ -454,15 +447,8 @@
 			$fullPicNext = $('.nav--full--next');
 			$fullPicPre = $('.nav--full--pre');
 			$navFull = $('.nav--full');
-			if (imgNum == 1) {
-				canPreFullPic = false;
-				canNextFullPic = true;
-				$fullPicPre.children('.txt').text('END');
-			} else if (imgNum == 41){
-				canNextFullPic = false;
-				canPreFullPic = true;
-				$fullPicNext.children('.txt').text('END');
-			}
+			isLastImg((imgNum + 1), 'full', 1, $fullPicNext);
+			isLastImg((imgNum - 1), 'full', 2, $fullPicPre);
 		}
 	});
 	isLastImg(12, 'thumb');
