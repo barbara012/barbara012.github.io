@@ -571,14 +571,12 @@ ul a:link {
 	transform: translateX(-20px);
 }
 @media all and (max-width:1440px) {
-	.body .main,
-	.canvs {
+	.body .main {
 		zoom: 0.9;
 	}
 }
 @media all and (max-width:1366px) {
-	.body .main,
-	.canvs {
+	.body .main {
 		zoom: 0.8;
 	}
 	.describe-txt {
@@ -586,8 +584,7 @@ ul a:link {
 	}
 }
 @media all and (max-width:1280px) {
-	.body .main,
-	.canvs {
+	.body .main {
 		zoom: 0.7;
 	}
 	.describe-txt {

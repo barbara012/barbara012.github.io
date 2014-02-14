@@ -67,11 +67,11 @@
 			            if (hwh === 1) {
 			            	 canNextFullPic = false;
 
-			            	 elemt.children('.txt').text('END')
+			            	 elemt.children('.txt').text('HWH');
 			            } else if (hwh === 2) {
 			            	canPreFullPic = false;
 
-			            	elemt.children('.txt').text('END')
+			            	elemt.children('.txt').text('END');
 			            } else {
 			            	canNext = false;
 			            	$moreLi
@@ -188,8 +188,22 @@
 
 	var	$trackMatte = $('.track-matte'),
 		$canvs = $('.canvs'),
-		picHeight,
 		describeText = $('<div class="describe-txt"></div>'),
+		getPicSize = function (obj) {
+			var w = parseInt(obj.width(), 10),
+				h = parseInt(obj.height(), 10),
+			    picHeight = parseInt($(window).height(), 10) * 0.8,
+			    picWidth;
+			if (picHeight > h) {
+				picHeight = h;
+			}
+			picWidth = picHeight * (w / h);
+
+			return {
+				h: picHeight,
+				w: picWidth
+			};
+		},
 		createLoad = function () {
 			return $('<img src="images/3.gif" class="load">');
 		},
@@ -230,7 +244,8 @@
 			if (canNextFullPic === false) {
 				return;
 			};
-			var element = getImgFull();
+			var element = getImgFull(),
+				objSize;
 			fullImgDiv.children('.image-full').css('display', 'none');
 			loadImg.appendTo(fullImgDiv);
 			describeText.css(
@@ -247,14 +262,12 @@
 
 				fullImgDiv.children('.load').remove();
 				$(this).css('display', 'block');
-				var w = parseInt(element.obj.width(), 10),
-					h = parseInt(element.obj.height(), 10);
-				picWidth = picHeight * (w / h);
+				objSize = getPicSize(element.obj);
 				describeText.empty().append('<p>' + picDes[element.picId]+ '</p>')
 							.animate(
 								{
 									opacity: 1,
-									top: picHeight + 10
+									top: objSize.h + 10
 								},
 								{
 									easing: 'easeOutExpo',
@@ -271,7 +284,8 @@
 			if (canPreFullPic === false) {
 				return;
 			};
-			var element = getImgFull();
+			var element = getImgFull(),
+				objSize;
 			fullImgDiv.children('.image-full').css('display', 'none');
 			loadImg.appendTo(fullImgDiv);
 			describeText.css(
@@ -289,14 +303,12 @@
 
 				fullImgDiv.children('.load').remove();
 				$(this).css('display', 'block');
-				var w = parseInt(element.obj.width(), 10),
-					h = parseInt(element.obj.height(), 10);
-				picWidth = picHeight * (w / h);
+				objSize = getPicSize(element.obj);
 				describeText.empty().append('<p>' + picDes[element.picId-2]+ '</p>')
 							.animate(
 								{
 									opacity: 1,
-									top: picHeight + 10
+									top: objSize.h + 10
 								},
 								{
 									easing: 'easeOutExpo',
@@ -331,14 +343,11 @@
 		var imgNum,
 			src,
 			fullImg,
-			windowHeight,
-			picWidth,
 			fullNext,
-			fullPre;
+			fullPre,
+			objSize;
 
-		if ($(this).hasClass('img-li')) {
-			windowHeight = parseInt($(window).height(), 10);
-			picHeight = windowHeight;
+		if ($(this).hasClass('img-li')) {			
 
 			imgNum = parseInt($(this).children('a').children('img').attr('data-num'), 10);
 			src = (srcFull + imgNum + '.jpg');
@@ -372,23 +381,21 @@
 				fullImgDiv.children('.load').remove();
 				fullImg.appendTo(fullImgDiv);
 
-				var w = parseInt(fullImg.width(), 10),
-					h = parseInt(fullImg.height(), 10);
-				picWidth = picHeight * (w / h);
+				objSize = getPicSize(fullImg);
 
 				fullImgDiv.css({
-					width: picWidth,
+					width: objSize.w,
 					height: 0,
-					marginTop: picHeight/2
+					marginTop: objSize.h/2
 				});
 				fullImg.css({
-					height: picHeight
+					height: objSize.h
 				});
 
 				fullImgDiv.animate(
 					{
 						marginTop: 0,
-						height: picHeight
+						height: objSize.h
 					},
 					{
 						easing: 'easeOutExpo',
@@ -397,7 +404,7 @@
 							describeText.animate(
 								{
 									opacity: 1,
-									top: picHeight + 10
+									top: objSize.h + 10
 								},
 								{
 									easing: 'easeOutExpo',
