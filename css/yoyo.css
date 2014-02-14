@@ -302,11 +302,16 @@ ul a:link {
 .describe-txt {
 	position: absolute;
 	left: 6px;
+	top: 0;
 	color: #ffffff;
 	opacity: 0;
 	filter: alpha(opacity=0);
 	font-size: 12px;
 	z-index: -2;
+	-webkit-transition: top 0.2s ease;
+	-moz-transition: top 0.2s ease;
+	-ms-transition: top 0.2s ease;
+	transition: top 0.2s ease;
 }
 .describe-txt p {
 	line-height: 1.5;

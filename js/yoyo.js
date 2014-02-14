@@ -67,7 +67,7 @@
 			            if (hwh === 1) {
 			            	 canNextFullPic = false;
 
-			            	 elemt.children('.txt').text('HWH');
+			            	 elemt.children('.txt').text('END');
 			            } else if (hwh === 2) {
 			            	canPreFullPic = false;
 
@@ -189,6 +189,7 @@
 	var	$trackMatte = $('.track-matte'),
 		$canvs = $('.canvs'),
 		describeText = $('<div class="describe-txt"></div>'),
+		yoyo = 1,
 		getPicSize = function (obj) {
 			var w = parseInt(obj.width(), 10),
 				h = parseInt(obj.height(), 10),
@@ -198,7 +199,7 @@
 				picHeight = h;
 			}
 			picWidth = picHeight * (w / h);
-
+			//console.log(yoyo++);
 			return {
 				h: picHeight,
 				w: picWidth
@@ -244,38 +245,45 @@
 			if (canNextFullPic === false) {
 				return;
 			};
-			var element = getImgFull(),
+			var elementNext = getImgFull(),
 				objSize;
-			fullImgDiv.children('.image-full').css('display', 'none');
+			fullImgDiv.children('.image-full').css(
+				{
+					'display': 'none',
+					'height': 'auto'
+				}
+			);
 			loadImg.appendTo(fullImgDiv);
 			describeText.css(
 				{
-					opacity: '0',
 					top: '0'
 				}
 			);
-			element.obj.attr({
-				'src': srcFull + (element.picId + 1) + '.jpg',
-				'data-num': (element.picId + 1)
+			elementNext.obj.attr({
+				'src': srcFull + (elementNext.picId + 1) + '.jpg',
+				'data-num': (elementNext.picId + 1)
 			});
-			element.obj.load(function () {
+			elementNext.obj.load(function () {
 
 				fullImgDiv.children('.load').remove();
-				$(this).css('display', 'block');
-				objSize = getPicSize(element.obj);
-				describeText.empty().append('<p>' + picDes[element.picId]+ '</p>')
-							.animate(
+				
+				objSize = getPicSize(elementNext.obj);
+				
+				$(this).css(
+					{
+						'display': 'block',
+						'height': objSize.h
+					}
+				);
+				describeText.empty().append('<p>' + picDes[elementNext.picId]+ '</p>')
+							.css(
 								{
-									opacity: 1,
-									top: objSize.h + 10
-								},
-								{
-									easing: 'easeOutExpo',
-									duration: '100'
+									'top': objSize.h + 10
 								}
 							);
 				canPreFullPic = true;
-				isLastImg((element.picId + 2), 'full', 1, $fullPicNext);
+				$fullPicPre.children('.txt').text('PREVIOUS');
+				isLastImg((elementNext.picId + 2), 'full', 1, $fullPicNext);
 			});
 		},
 
@@ -284,9 +292,14 @@
 			if (canPreFullPic === false) {
 				return;
 			};
-			var element = getImgFull(),
+			var elementPre = getImgFull(),
 				objSize;
-			fullImgDiv.children('.image-full').css('display', 'none');
+			fullImgDiv.children('.image-full').css(
+				{
+					'display': 'none',
+					'height': 'auto'
+				}
+			);
 			loadImg.appendTo(fullImgDiv);
 			describeText.css(
 				{
@@ -294,30 +307,32 @@
 					top: '0'
 				}
 			);
-			element.obj.attr({
-				'src': srcFull + (element.picId - 1) + '.jpg',
-				'data-num': (element.picId - 1)
+			elementPre.obj.attr({
+				'src': srcFull + (elementPre.picId - 1) + '.jpg',
+				'data-num': (elementPre.picId - 1)
 			});
 			
-			element.obj.load(function () {
+			elementPre.obj.load(function () {
 
 				fullImgDiv.children('.load').remove();
-				$(this).css('display', 'block');
-				objSize = getPicSize(element.obj);
-				describeText.empty().append('<p>' + picDes[element.picId-2]+ '</p>')
-							.animate(
+				
+				objSize = getPicSize(elementPre.obj);
+				$(this).css(
+					{
+						'display': 'block',
+						'height': objSize.h
+					}
+				);
+				describeText.empty().append('<p>' + picDes[elementPre.picId-2]+ '</p>')
+							.css(
 								{
-									opacity: 1,
-									top: objSize.h + 10
-								},
-								{
-									easing: 'easeOutExpo',
-									duration: '100'
+									'top': objSize.h + 10
 								}
 							);
 
 				canNextFullPic = true;
-				isLastImg((element.picId - 2), 'full', 2, $fullPicPre);
+				$fullPicNext.children('.txt').text('NEXT');
+				isLastImg((elementPre.picId - 2), 'full', 2, $fullPicPre);
 			});
 
 
@@ -325,15 +340,20 @@
 
 		creatFullNext = function () {
 			return $('<a href="javascript:;" class="nav--full nav--full--next"></a>')
-						.click(function () {
-							changePicNext();
+						.click(function (e) {
+							if (e.currentTarget.tagName == 'A') {
+								changePicNext();
+								console.log(e.currentTarget.tagName);
+							}
 						});
 		},
 
 		creatFullPre = function () {
 			return $('<a href="javascript:;" class="nav--full nav--full--pre"></a>')
-						.click(function () {
+						.click(function (e) {
+
 							changePicPre();
+							console.log(e.currentTarget.tagName);
 						});
 		},		
 		fullImgDiv,
@@ -363,7 +383,8 @@
 				)
 				.append(
 					$('<span class="txt">NEXT</span>')
-				).appendTo(fullImgDiv);
+				)
+				.appendTo(fullImgDiv);
 			fullPre
 				.append(
 					$('<span class="txt">PREVIOUS</span>')
@@ -428,7 +449,8 @@
 			$fullPicNext = $('.nav--full--next');
 			$fullPicPre = $('.nav--full--pre');
 			$navFull = $('.nav--full');
-			isLastImg((imgNum + 1), 'full', 1, $navFull);
+			isLastImg((imgNum + 1), 'full', 1, $fullPicNext);
+			isLastImg((imgNum - 1), 'full', 2, $fullPicPre);
 		}
 	});
 	isLastImg(12, 'thumb');
