@@ -122,6 +122,7 @@ ul a:link {
 .main {
 	position: relative;
 	transition: all 0.2s ease;
+	overflow: hidden;
 }
 .bg-jx {
 	width: 403px;
